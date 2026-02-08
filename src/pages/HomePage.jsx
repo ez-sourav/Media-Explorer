@@ -52,6 +52,7 @@ const HomePage = () => {
                   text-white
                   hover:bg-white/20
                   transition
+                  hover:cursor-pointer
                   active:scale-95
                 "
               >

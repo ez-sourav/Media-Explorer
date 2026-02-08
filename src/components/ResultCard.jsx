@@ -1,11 +1,14 @@
 import { useDispatch } from "react-redux";
-import { addCollection, addedTost,downloadSuccessToast,
-  downloadFailedToast, } from "../redux/features/collectionSlice";
+import {
+  addCollection,
+  addedTost,
+  downloadSuccessToast,
+  downloadFailedToast,
+} from "../redux/features/collectionSlice";
 import { Download } from "lucide-react";
 
 const ResultCard = ({ item }) => {
   const dispatch = useDispatch();
-
 
   const addToCollection = (e, item) => {
     e.preventDefault();
@@ -14,37 +17,35 @@ const ResultCard = ({ item }) => {
     dispatch(addedTost());
   };
 
-
   const handleDownload = async (e) => {
-  e.preventDefault();
-  e.stopPropagation();
+    e.preventDefault();
+    e.stopPropagation();
 
-  try {
-    const response = await fetch(item.src);
+    try {
+      const response = await fetch(item.src);
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch file");
+      if (!response.ok) {
+        throw new Error("Failed to fetch file");
+      }
+
+      const blob = await response.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = blobUrl;
+      a.download = `${item.type}-${item.id}`;
+      document.body.appendChild(a);
+      a.click();
+
+      a.remove();
+      window.URL.revokeObjectURL(blobUrl);
+
+      dispatch(downloadSuccessToast());
+    } catch (err) {
+      console.error("Download failed", err);
+      dispatch(downloadFailedToast());
     }
-
-    const blob = await response.blob();
-    const blobUrl = window.URL.createObjectURL(blob);
-
-    const a = document.createElement("a");
-    a.href = blobUrl;
-    a.download = `${item.type}-${item.id}`;
-    document.body.appendChild(a);
-    a.click();
-
-    a.remove();
-    window.URL.revokeObjectURL(blobUrl);
-
-    dispatch(downloadSuccessToast());
-  } catch (err) {
-    console.error("Download failed", err);
-    dispatch(downloadFailedToast());
-  }
-};
-
+  };
 
   return (
     <div
@@ -61,7 +62,6 @@ const ResultCard = ({ item }) => {
         group
       "
     >
-   
       <a rel="noopener noreferrer" className="absolute inset-0">
         {item.type === "photo" && (
           <img
@@ -96,7 +96,6 @@ const ResultCard = ({ item }) => {
         )}
       </a>
 
-      
       <button
         onClick={handleDownload}
         title="Download"

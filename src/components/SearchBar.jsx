@@ -1,4 +1,3 @@
-
 import { setQuery } from "../redux/features/searchSlice";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,16 +9,14 @@ const SearchBar = () => {
   const [isFocused, setIsFocused] = useState(false);
   const dispatch = useDispatch();
   const { query } = useSelector((store) => store.search);
-useEffect(() => {
-  setText(query);
-}, [query]);
-
+  useEffect(() => {
+    setText(query);
+  }, [query]);
 
   const submitHandler = (e) => {
     e.preventDefault();
     if (text.trim()) {
       dispatch(setQuery(text));
-      
     }
   };
 

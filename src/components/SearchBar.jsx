@@ -83,6 +83,7 @@ const SearchBar = () => {
                   hover:bg-white/10
                   text-white/60
                   hover:text-white
+                  hover:cursor-pointer
                   transition
                   active:scale-95
                 "
@@ -106,7 +107,7 @@ const SearchBar = () => {
                 transition
                 ${
                   text.trim()
-                    ? "bg-gray-50 text-slate-900 hover:bg-white/90 active:scale-95"
+                    ? "bg-gray-50 text-slate-900 hover:cursor-pointer hover:bg-white/90 active:scale-95"
                     : "bg-white/5 text-white/30 cursor-not-allowed"
                 }
               `}

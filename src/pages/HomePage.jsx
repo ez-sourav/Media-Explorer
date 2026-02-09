@@ -9,14 +9,7 @@ const HomePage = () => {
   const { query } = useSelector((store) => store.search);
   const dispatch = useDispatch();
 
-  const suggestions = [
-    "Nature",
-    "Anime",
-    "Travel",
-    "Cars",
-    "Coding",
-    "Space",
-  ];
+  const suggestions = ["Nature", "Anime", "Travel", "Cars", "Coding", "Space"];
 
   return (
     <div>
@@ -28,7 +21,6 @@ const HomePage = () => {
           <ResultGrid />
         </div>
       ) : (
-        
         <div className="mt-16 flex flex-col items-center text-center px-4">
           <h2 className="text-xl sm:text-2xl font-medium text-white/90">
             Search photos, videos, and GIFs — all in one place
@@ -38,7 +30,6 @@ const HomePage = () => {
             Start by typing or try one of these popular searches
           </p>
 
-          
           <div className="mt-6 flex flex-wrap justify-center gap-2">
             {suggestions.map((item) => (
               <button

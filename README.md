@@ -29,4 +29,3 @@ It also includes a **Collection feature** where users can save their favorite me
 - **Styling:** Tailwind CSS
 - **Icons:** Lucide React
 - **API Requests:** Axios
----

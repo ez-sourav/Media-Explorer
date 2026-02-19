@@ -31,10 +31,9 @@ const NavBar = () => {
                 text-sm sm:text-base font-medium
                 rounded-lg sm:rounded-xl
                 transition-all duration-200
-                ${
-                  isActive("/")
-                    ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30"
-                    : "bg-white/10 text-white/80 hover:bg-white/15 hover:text-white"
+                ${isActive("/")
+                  ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30"
+                  : "bg-white/10 text-white/80 hover:bg-white/15 hover:text-white"
                 }
                 active:scale-95
               `}
@@ -55,10 +54,9 @@ const NavBar = () => {
                 text-sm sm:text-base font-medium
                 rounded-lg sm:rounded-xl
                 transition-all duration-200
-                ${
-                  isActive("/collection")
-                    ? "bg-purple-500 text-white shadow-lg shadow-purple-500/30"
-                    : "bg-white/10 text-white/80 hover:bg-white/15 hover:text-white"
+                ${isActive("/collection")
+                  ? "bg-purple-500 text-white shadow-lg shadow-purple-500/30"
+                  : "bg-white/10 text-white/80 hover:bg-white/15 hover:text-white"
                 }
                 active:scale-95
               `}

@@ -35,10 +35,9 @@ const SearchBar = () => {
               bg-slate-900/80 backdrop-blur-sm
               border-2 transition-all duration-300
               px-4 sm:px-6 py-3 sm:py-4
-              ${
-                isFocused
-                  ? "border-white/30"
-                  : "border-white/10 hover:border-white/20"
+              ${isFocused
+                ? "border-white/30"
+                : "border-white/10 hover:border-white/20"
               }
             `}
           >
@@ -105,10 +104,9 @@ const SearchBar = () => {
                 font-medium
                 text-sm sm:text-base
                 transition
-                ${
-                  text.trim()
-                    ? "bg-gray-50 text-slate-900 hover:cursor-pointer hover:bg-white/90 active:scale-95"
-                    : "bg-white/5 text-white/30 cursor-not-allowed"
+                ${text.trim()
+                  ? "bg-gray-50 text-slate-900 hover:cursor-pointer hover:bg-white/90 active:scale-95"
+                  : "bg-white/5 text-white/30 cursor-not-allowed"
                 }
               `}
             >

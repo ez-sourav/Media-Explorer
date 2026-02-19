@@ -202,11 +202,10 @@ const ResultGrid = () => {
                 onClick={() => dispatch(setPage(p))}
                 className={`
             h-9 w-9 rounded-md text-sm font-medium hover:cursor-pointer active:scale-95 transition
-            ${
-              page === p
-                ? "bg-white text-black shadow"
-                : "bg-white/10 text-white hover:bg-white/20"
-            }
+            ${page === p
+                    ? "bg-white text-black shadow"
+                    : "bg-white/10 text-white hover:bg-white/20"
+                  }
           `}
               >
                 {p}
